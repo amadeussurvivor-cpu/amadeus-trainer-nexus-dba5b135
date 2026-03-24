@@ -12,14 +12,14 @@ const Sobre = () => (
     <section className="py-16 md:py-24">
       <div className="container max-w-3xl">
         <p className="font-mono text-sm text-terminal-dim mb-4">{"> about.read()"}</p>
-        <h1 className="font-mono text-3xl md:text-5xl font-bold text-foreground terminal-glow mb-8">
+        <h1 className="font-mono text-3xl md:text-5xl font-bold text-gradient-neon mb-8">
           Sobre el proyecto
         </h1>
 
         <div className="space-y-8 text-secondary-foreground">
-          <div className="terminal-card p-6">
+          <div className="terminal-card-hover p-6 border border-terminal-green/20">
             <div className="flex items-center gap-3 mb-4">
-              <Terminal className="h-6 w-6 text-primary" />
+              <Terminal className="h-6 w-6 text-terminal-green" />
               <h2 className="font-mono text-lg text-foreground">Origen</h2>
             </div>
             <p>
@@ -29,9 +29,9 @@ const Sobre = () => (
             </p>
           </div>
 
-          <div className="terminal-card p-6">
+          <div className="terminal-card-hover p-6 border border-terminal-cyan/20">
             <div className="flex items-center gap-3 mb-4">
-              <Target className="h-6 w-6 text-primary" />
+              <Target className="h-6 w-6 text-terminal-cyan" />
               <h2 className="font-mono text-lg text-foreground">Objetivo</h2>
             </div>
             <p>
@@ -41,9 +41,9 @@ const Sobre = () => (
             </p>
           </div>
 
-          <div className="terminal-card p-6">
+          <div className="terminal-card-hover p-6 border border-terminal-violet/20">
             <div className="flex items-center gap-3 mb-4">
-              <BookOpen className="h-6 w-6 text-primary" />
+              <BookOpen className="h-6 w-6 text-terminal-violet" />
               <h2 className="font-mono text-lg text-foreground">Filosofía</h2>
             </div>
             <p>
@@ -53,7 +53,7 @@ const Sobre = () => (
             </p>
           </div>
 
-          <div className="mt-8 p-4 rounded-sm border border-terminal-amber/30 bg-terminal-amber/5">
+          <div className="mt-8 p-4 rounded-md border border-terminal-amber/30 bg-terminal-amber/5">
             <p className="text-sm text-muted-foreground">
               <strong className="text-secondary-foreground">Nota:</strong> Este proyecto no está afiliado con Amadeus IT Group.
               Los simuladores son herramientas de formación independientes.

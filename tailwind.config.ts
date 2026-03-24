@@ -55,6 +55,9 @@ export default {
           green: "hsl(var(--terminal-green))",
           dim: "hsl(var(--terminal-dim))",
           amber: "hsl(var(--terminal-amber))",
+          cyan: "hsl(var(--terminal-cyan))",
+          blue: "hsl(var(--terminal-blue))",
+          violet: "hsl(var(--terminal-violet))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -89,12 +92,17 @@ export default {
           from: { width: "0" },
           to: { width: "100%" },
         },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "blink": "blink-cursor 1s step-end infinite",
         "typing": "typing 2s steps(30) forwards",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
       },
     },
   },

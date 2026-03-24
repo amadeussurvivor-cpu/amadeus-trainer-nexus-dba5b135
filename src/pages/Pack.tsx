@@ -1,7 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Plane, Hotel, Car, ExternalLink, Package } from "lucide-react";
+import { Plane, Hotel, Car, ExternalLink, Package, ChevronRight } from "lucide-react";
 
 const HOTMART_URL = "https://hotmart.com/es/marketplace"; // placeholder
 
@@ -11,18 +11,24 @@ const modules = [
     title: "Simulador Vuelos",
     desc: "Crea PNR de vuelos: disponibilidad, reserva, datos de pasajero y emisión.",
     to: "/simulador-vuelos",
+    iconColor: "text-terminal-green",
+    borderColor: "border-terminal-green/30 hover:border-terminal-green/60",
   },
   {
     icon: Hotel,
     title: "Simulador Hoteles",
     desc: "Gestiona reservas de hotel: búsqueda, tarifas, confirmación y modificaciones.",
     to: "/simulador-hoteles",
+    iconColor: "text-terminal-violet",
+    borderColor: "border-terminal-violet/30 hover:border-terminal-violet/60",
   },
   {
     icon: Car,
     title: "Simulador Coches",
     desc: "Domina la reserva de coches: disponibilidad, categorías y confirmación.",
     to: "/simulador-coches",
+    iconColor: "text-terminal-cyan",
+    borderColor: "border-terminal-cyan/30 hover:border-terminal-cyan/60",
   },
 ];
 
@@ -37,10 +43,10 @@ const Pack = () => (
     <section className="py-16 md:py-24">
       <div className="container max-w-4xl">
         <div className="flex items-center gap-3 mb-4">
-          <Package className="h-8 w-8 text-primary" />
+          <Package className="h-8 w-8 text-terminal-cyan" />
           <p className="font-mono text-sm text-terminal-dim">{"> pack.list()"}</p>
         </div>
-        <h1 className="font-mono text-3xl md:text-5xl font-bold text-foreground terminal-glow mb-6">
+        <h1 className="font-mono text-3xl md:text-5xl font-bold text-gradient-neon mb-6">
           Pack Simuladores Amadeus
         </h1>
         <p className="text-lg text-secondary-foreground max-w-2xl">
@@ -53,17 +59,17 @@ const Pack = () => (
     <section className="py-12">
       <div className="container max-w-4xl">
         <div className="space-y-6">
-          {modules.map(({ icon: Icon, title, desc, to }) => (
-            <div key={to} className="terminal-card p-6 flex flex-col sm:flex-row items-start gap-6">
-              <Icon className="h-12 w-12 text-primary shrink-0" />
+          {modules.map(({ icon: Icon, title, desc, to, iconColor, borderColor }) => (
+            <div key={to} className={`terminal-card-hover p-6 flex flex-col sm:flex-row items-start gap-6 border ${borderColor}`}>
+              <Icon className={`h-12 w-12 ${iconColor} shrink-0`} />
               <div className="flex-1">
                 <h2 className="font-mono text-xl text-foreground mb-2">{title}</h2>
                 <p className="text-sm text-muted-foreground mb-4">{desc}</p>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild variant="outline" size="sm" className="font-mono border-border text-foreground hover:bg-secondary">
-                    <Link to={to}>Ver detalles</Link>
+                    <Link to={to}>Ver detalles <ChevronRight className="h-3 w-3 ml-1" /></Link>
                   </Button>
-                  <Button asChild size="sm" className="font-mono gap-1">
+                  <Button asChild size="sm" className="font-mono gap-1 bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30">
                     <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
                       Comprar <ExternalLink className="h-3 w-3" />
                     </a>

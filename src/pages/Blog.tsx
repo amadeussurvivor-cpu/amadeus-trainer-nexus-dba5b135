@@ -1,5 +1,4 @@
 import SEOHead from "@/components/SEOHead";
-import { Link } from "react-router-dom";
 import { FileText } from "lucide-react";
 
 const placeholderPosts = [
@@ -19,15 +18,15 @@ const Blog = () => (
     <section className="py-16 md:py-24">
       <div className="container max-w-3xl">
         <p className="font-mono text-sm text-terminal-dim mb-4">{"> blog.list()"}</p>
-        <h1 className="font-mono text-3xl md:text-5xl font-bold text-foreground terminal-glow mb-8">
+        <h1 className="font-mono text-3xl md:text-5xl font-bold text-gradient-neon mb-8">
           Blog
         </h1>
 
         <div className="space-y-4">
           {placeholderPosts.map((post) => (
-            <article key={post.slug} className="terminal-card p-6">
+            <article key={post.slug} className="terminal-card-hover p-6 border border-terminal-cyan/20">
               <div className="flex items-start gap-4">
-                <FileText className="h-5 w-5 text-terminal-dim shrink-0 mt-1" />
+                <FileText className="h-5 w-5 text-terminal-cyan shrink-0 mt-1" />
                 <div>
                   <h2 className="font-mono text-lg text-foreground mb-1">{post.title}</h2>
                   <p className="text-xs text-muted-foreground font-mono">{post.date}</p>

@@ -47,38 +47,38 @@ const Contacto = () => {
       <section className="py-16 md:py-24">
         <div className="container max-w-xl">
           <p className="font-mono text-sm text-terminal-dim mb-4">{"> contact.open()"}</p>
-          <h1 className="font-mono text-3xl md:text-4xl font-bold text-foreground terminal-glow mb-8">
+          <h1 className="font-mono text-3xl md:text-4xl font-bold text-gradient-neon mb-8">
             Contacto
           </h1>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email" className="font-mono text-sm text-foreground">Email</Label>
+              <Label htmlFor="email" className="font-mono text-sm text-terminal-cyan">Email</Label>
               <Input
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="tu@email.com"
-                className="font-mono bg-card border-border text-foreground placeholder:text-muted-foreground"
+                className="font-mono bg-card border-terminal-cyan/20 text-foreground placeholder:text-muted-foreground focus:border-terminal-cyan/60"
               />
               {errors.email && <p className="text-xs text-destructive font-mono">{errors.email}</p>}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message" className="font-mono text-sm text-foreground">Mensaje</Label>
+              <Label htmlFor="message" className="font-mono text-sm text-terminal-cyan">Mensaje</Label>
               <Textarea
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Escribe tu mensaje..."
                 rows={6}
-                className="font-mono bg-card border-border text-foreground placeholder:text-muted-foreground"
+                className="font-mono bg-card border-terminal-cyan/20 text-foreground placeholder:text-muted-foreground focus:border-terminal-cyan/60"
               />
               {errors.message && <p className="text-xs text-destructive font-mono">{errors.message}</p>}
             </div>
 
-            <Button type="submit" className="font-mono gap-2 w-full">
+            <Button type="submit" className="font-mono gap-2 w-full bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30">
               Enviar mensaje <Send className="h-4 w-4" />
             </Button>
           </form>
