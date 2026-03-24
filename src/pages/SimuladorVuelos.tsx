@@ -28,6 +28,7 @@ const SimuladorVuelos = () => (
       "Cancelar segmentos de un PNR",
     ]}
     hotmartUrl={HOTMART_VUELOS_URL}
+    colorTheme="cyan"
   />
 );
 

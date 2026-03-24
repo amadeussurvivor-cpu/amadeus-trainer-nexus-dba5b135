@@ -28,6 +28,7 @@ const SimuladorCoches = () => (
       "Cancelar una reserva de coche",
     ]}
     hotmartUrl={HOTMART_COCHES_URL}
+    colorTheme="blue"
   />
 );
 

@@ -28,6 +28,7 @@ const SimuladorHoteles = () => (
       "Cancelar una reserva de hotel",
     ]}
     hotmartUrl={HOTMART_HOTELES_URL}
+    colorTheme="violet"
   />
 );
 

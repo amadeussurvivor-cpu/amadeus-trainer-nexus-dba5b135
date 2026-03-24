@@ -5,39 +5,45 @@ import {
   Plane, Hotel, Car, Monitor, Target, Users, ShieldCheck,
   Clock, BookOpen, Play, ChevronRight, ExternalLink, Zap, Lock, Rocket
 } from "lucide-react";
+import logoVuelos from "@/assets/logo_vuelos.png";
+import logoCoches from "@/assets/logo_coches.png";
+import logoHoteles from "@/assets/logo_hoteles.png";
 
 const HOTMART_URL = "https://hotmart.com/es/marketplace"; // placeholder
 
 const modules = [
   {
     icon: Plane,
+    image: logoVuelos,
     title: "VUELOS / GDS",
     subtitle: "Agencia en Cuarentena",
     desc: "Aprende a crear un PNR básico de vuelos: disponibilidad, reserva, datos de pasajero, emisión.",
     to: "/simulador-vuelos",
-    glowColor: "hsl(150 100% 50% / 0.15)",
-    borderColor: "border-terminal-green/40 hover:border-terminal-green/70",
-    iconColor: "text-terminal-green",
+    borderColor: "border-terminal-cyan/40 hover:border-terminal-cyan/70",
+    iconColor: "text-terminal-cyan",
+    btnClass: "bg-terminal-cyan/20 border border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/30",
   },
   {
     icon: Car,
+    image: logoCoches,
     title: "ALQUILER / CARS",
     subtitle: "Simulador de Alquiler",
     desc: "Domina la reserva de coches: disponibilidad, categorías, tarifas y confirmación de reservas.",
     to: "/simulador-coches",
-    glowColor: "hsl(180 100% 50% / 0.15)",
-    borderColor: "border-terminal-cyan/40 hover:border-terminal-cyan/70",
-    iconColor: "text-terminal-cyan",
+    borderColor: "border-terminal-blue/40 hover:border-terminal-blue/70",
+    iconColor: "text-terminal-blue",
+    btnClass: "bg-terminal-blue/20 border border-terminal-blue/50 text-terminal-blue hover:bg-terminal-blue/30",
   },
   {
     icon: Hotel,
+    image: logoHoteles,
     title: "HOSPEDAJE / HOTEL",
     subtitle: "Gestión de Hospedaje",
     desc: "Practica reservas de hotel: búsqueda de disponibilidad, tarifas, confirmación y modificaciones.",
     to: "/simulador-hoteles",
-    glowColor: "hsl(270 80% 65% / 0.15)",
     borderColor: "border-terminal-violet/40 hover:border-terminal-violet/70",
     iconColor: "text-terminal-violet",
+    btnClass: "bg-terminal-violet/20 border border-terminal-violet/50 text-terminal-violet hover:bg-terminal-violet/30",
   },
 ];
 
@@ -130,20 +136,28 @@ const Index = () => (
         <h2 className="font-mono text-2xl md:text-3xl text-gradient-neon mb-2 text-center">SELECCIÓN DE MÓDULO</h2>
         <p className="text-muted-foreground text-center mb-10 text-sm">Elige tu campo de batalla</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {modules.map(({ icon: Icon, title, subtitle, desc, to, borderColor, iconColor }) => (
-            <Link
+          {modules.map(({ image, title, subtitle, desc, to, borderColor, iconColor, btnClass }) => (
+            <div
               key={to}
-              to={to}
               className={`terminal-card-hover p-6 flex flex-col border ${borderColor} group`}
             >
-              <Icon className={`h-12 w-12 ${iconColor} mb-4 transition-transform group-hover:scale-110`} />
-              <h3 className="font-mono text-lg text-foreground mb-1">{title}</h3>
+              <div className="w-full aspect-square rounded-md overflow-hidden mb-4 bg-background">
+                <img src={image} alt={title} className="w-full h-full object-cover" />
+              </div>
+              <h3 className={`font-mono text-lg ${iconColor} mb-1`}>{title}</h3>
               <p className="text-xs text-muted-foreground font-mono mb-3">{subtitle}</p>
               <p className="text-sm text-muted-foreground flex-1 mb-6">{desc}</p>
-              <div className="flex items-center gap-2 font-mono text-sm text-terminal-cyan">
-                <span>▶</span> ENTRAR <ChevronRight className="h-3 w-3" />
+              <div className="flex flex-col gap-2">
+                <Button asChild size="sm" className={`font-mono ${btnClass}`}>
+                  <Link to={to}>▶ ENTRAR</Link>
+                </Button>
+                <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
+                  <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
+                    Comprar <ExternalLink className="h-3 w-3" />
+                  </a>
+                </Button>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
