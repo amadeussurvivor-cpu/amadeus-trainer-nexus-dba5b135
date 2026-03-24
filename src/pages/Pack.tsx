@@ -11,8 +11,18 @@ const modules = [
     title: "Simulador Vuelos",
     desc: "Crea PNR de vuelos: disponibilidad, reserva, datos de pasajero y emisión.",
     to: "/simulador-vuelos",
-    iconColor: "text-terminal-green",
-    borderColor: "border-terminal-green/30 hover:border-terminal-green/60",
+    iconColor: "text-terminal-cyan",
+    borderColor: "border-terminal-cyan/30 hover:border-terminal-cyan/60",
+    btnClass: "bg-terminal-cyan/20 border border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/30",
+  },
+  {
+    icon: Car,
+    title: "Simulador Coches",
+    desc: "Domina la reserva de coches: disponibilidad, categorías y confirmación.",
+    to: "/simulador-coches",
+    iconColor: "text-terminal-blue",
+    borderColor: "border-terminal-blue/30 hover:border-terminal-blue/60",
+    btnClass: "bg-terminal-blue/20 border border-terminal-blue/50 text-terminal-blue hover:bg-terminal-blue/30",
   },
   {
     icon: Hotel,
@@ -21,14 +31,7 @@ const modules = [
     to: "/simulador-hoteles",
     iconColor: "text-terminal-violet",
     borderColor: "border-terminal-violet/30 hover:border-terminal-violet/60",
-  },
-  {
-    icon: Car,
-    title: "Simulador Coches",
-    desc: "Domina la reserva de coches: disponibilidad, categorías y confirmación.",
-    to: "/simulador-coches",
-    iconColor: "text-terminal-cyan",
-    borderColor: "border-terminal-cyan/30 hover:border-terminal-cyan/60",
+    btnClass: "bg-terminal-violet/20 border border-terminal-violet/50 text-terminal-violet hover:bg-terminal-violet/30",
   },
 ];
 
@@ -59,17 +62,17 @@ const Pack = () => (
     <section className="py-12">
       <div className="container max-w-4xl">
         <div className="space-y-6">
-          {modules.map(({ icon: Icon, title, desc, to, iconColor, borderColor }) => (
+          {modules.map(({ icon: Icon, title, desc, to, iconColor, borderColor, btnClass }) => (
             <div key={to} className={`terminal-card-hover p-6 flex flex-col sm:flex-row items-start gap-6 border ${borderColor}`}>
               <Icon className={`h-12 w-12 ${iconColor} shrink-0`} />
               <div className="flex-1">
-                <h2 className="font-mono text-xl text-foreground mb-2">{title}</h2>
+                <h2 className={`font-mono text-xl ${iconColor} mb-2`}>{title}</h2>
                 <p className="text-sm text-muted-foreground mb-4">{desc}</p>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild variant="outline" size="sm" className="font-mono border-border text-foreground hover:bg-secondary">
                     <Link to={to}>Ver detalles <ChevronRight className="h-3 w-3 ml-1" /></Link>
                   </Button>
-                  <Button asChild size="sm" className="font-mono gap-1 bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30">
+                  <Button asChild size="sm" className={`font-mono gap-1 ${btnClass}`}>
                     <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
                       Comprar <ExternalLink className="h-3 w-3" />
                     </a>
