@@ -18,7 +18,7 @@ const modules = [
     image: logoVuelos,
     title: "VUELOS / GDS",
     subtitle: "Agencia en Cuarentena",
-    desc: "Aprende a crear un PNR básico de vuelos: disponibilidad, reserva, datos de pasajero, emisión.",
+    desc: "Agencia en cuarentena. Entrena lo que necesitas para no bloquearte en el terminal.",
     to: "/simulador-vuelos",
     color: "cyan" as const,
   },
