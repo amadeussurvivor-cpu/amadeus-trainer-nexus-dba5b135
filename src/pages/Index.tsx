@@ -18,7 +18,7 @@ const modules = [
     image: logoVuelos,
     title: "VUELOS / GDS",
     subtitle: "Agencia en Cuarentena",
-    desc: "Aprende a crear un PNR básico de vuelos: disponibilidad, reserva, datos de pasajero, emisión.",
+    desc: "Agencia en cuarentena. Entrena lo que necesitas para no bloquearte en el terminal.",
     to: "/simulador-vuelos",
     color: "cyan" as const,
   },
@@ -27,7 +27,7 @@ const modules = [
     image: logoCoches,
     title: "ALQUILER / CARS",
     subtitle: "Simulador de Alquiler",
-    desc: "Domina la reserva de coches: disponibilidad, categorías, tarifas y confirmación de reservas.",
+    desc: "No hay trenes. Solo quedan coches. Más vale que sepas usar el sistema.",
     to: "/simulador-coches",
     color: "blue" as const,
   },
@@ -36,7 +36,7 @@ const modules = [
     image: logoHoteles,
     title: "HOSPEDAJE / HOTEL",
     subtitle: "Gestión de Hospedaje",
-    desc: "Practica reservas de hotel: búsqueda de disponibilidad, tarifas, confirmación y modificaciones.",
+    desc: "Vuelos cancelados. Pasajeros sin hotel. Entrena antes de que te toque resolverlo.",
     to: "/simulador-hoteles",
     color: "violet" as const,
   },
@@ -101,7 +101,7 @@ const advantages = [
   { icon: Monitor, text: "Simulador realista" },
   { icon: Clock, text: "Acceso temporal flexible" },
   { icon: Lock, text: "Sin licencia GDS necesaria" },
-  { icon: Zap, text: "Resultados inmediatos" },
+  { icon: Zap, text: "Entrena antes del turno" },
 ];
 
 const Index = () => (
@@ -211,7 +211,7 @@ const Index = () => (
           <div className="bg-background rounded-sm p-4 text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Terminal className="h-4 w-4 text-terminal-green" />
-              <p className="font-mono text-xs text-terminal-dim tracking-[0.3em] uppercase">
+              <p className="font-mono text-[9px] md:text-xs text-terminal-dim tracking-[0.15em] md:tracking-[0.3em] uppercase hidden sm:block">
                 A M A D E U S &nbsp; S U R V I V O R
               </p>
               <Terminal className="h-4 w-4 text-terminal-green" />
@@ -325,8 +325,8 @@ const Index = () => (
             <div className="inline-flex items-center justify-center h-16 w-16 rounded-full border border-terminal-cyan/30 bg-terminal-cyan/5 mx-auto mb-4">
               <Play className="h-8 w-8 text-terminal-dim" />
             </div>
-            <p className="font-mono text-sm text-muted-foreground">Espacio para vídeo demo</p>
-            <p className="text-xs text-muted-foreground mt-1">Inserta aquí tu URL de YouTube</p>
+            <p className="font-mono text-sm text-muted-foreground">Así funciona el simulador</p>
+            <p className="text-xs text-muted-foreground mt-1">Ejemplo real del entrenamiento</p>
           </div>
         </div>
       </div>
