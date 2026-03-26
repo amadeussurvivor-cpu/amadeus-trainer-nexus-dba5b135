@@ -27,7 +27,7 @@ const modules = [
     image: logoCoches,
     title: "ALQUILER / CARS",
     subtitle: "Simulador de Alquiler",
-    desc: "Domina la reserva de coches: disponibilidad, categorías, tarifas y confirmación de reservas.",
+    desc: "No hay trenes. Solo quedan coches. Más vale que sepas usar el sistema.",
     to: "/simulador-coches",
     color: "blue" as const,
   },
