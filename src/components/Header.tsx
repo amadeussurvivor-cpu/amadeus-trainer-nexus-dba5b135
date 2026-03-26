@@ -9,9 +9,7 @@ const navLinks = [
   { to: "/simulador-vuelos", label: "Vuelos" },
   { to: "/simulador-hoteles", label: "Hoteles" },
   { to: "/simulador-coches", label: "Coches" },
-  { to: "/pack", label: "Pack" },
   { to: "/sobre", label: "Sobre" },
-  { to: "/blog", label: "Blog" },
   { to: "/contacto", label: "Contacto" },
 ];
 

@@ -79,17 +79,20 @@ const colorMap = {
 };
 
 const steps = [
-  { icon: Monitor, title: "Accede online", desc: "Entra desde cualquier navegador, sin instalaciones." },
-  { icon: ShieldCheck, title: "Entorno sandbox", desc: "Practica sin riesgo en un entorno simulado seguro." },
-  { icon: Target, title: "Misiones guiadas", desc: "Sigue misiones paso a paso para aprender cada comando." },
-  { icon: Rocket, title: "Progresa", desc: "Avanza de nivel completando misiones cada vez más complejas." },
+  { icon: Monitor, title: "Accede online", desc: "Desde cualquier navegador. Sin instalar nada. Sin usar el sistema real." },
+  { icon: ShieldCheck, title: "Practica sin riesgo", desc: "Practica en un terminal simulado. Puedes equivocarte sin romper nada." },
+  { icon: Target, title: "Entrena paso a paso", desc: "Cada ejercicio reproduce situaciones reales de agencia." },
+  { icon: Rocket, title: "Progresa", desc: "Empieza desde cero y avanza hasta crear reservas completas." },
 ];
 
 const audiences = [
-  "Agentes de viajes nuevos que empiezan en una agencia",
-  "Estudiantes de turismo que necesitan práctica con GDS",
-  "Formación interna en agencias de viajes",
-  "Personas sin acceso a una licencia de Amadeus",
+  "Estás estudiando turismo y quieres especializarte en agencias de viajes",
+  "No tienes acceso al sistema y no puedes practicar",
+  "Empiezas en una agencia y no quieres bloquearte delante del terminal",
+  "Quieres trabajar en turismo pero nunca has usado un GDS",
+  "Estás en tu primer trabajo y todo el mundo teclea más rápido que tú",
+  "Cambias de sector y necesitas entender cómo funciona de verdad",
+  "Has leído el manual… pero no sabes por dónde empezar",
 ];
 
 const advantages = [
@@ -113,14 +116,12 @@ const Index = () => (
     <section className="relative py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0 crt-scanlines pointer-events-none" />
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-40" />
-      {/* Decorative corner brackets */}
       <div className="absolute top-6 left-6 w-8 h-8 border-l-2 border-t-2 border-terminal-green/30 pointer-events-none" />
       <div className="absolute top-6 right-6 w-8 h-8 border-r-2 border-t-2 border-terminal-green/30 pointer-events-none" />
       <div className="absolute bottom-6 left-6 w-8 h-8 border-l-2 border-b-2 border-terminal-green/30 pointer-events-none" />
       <div className="absolute bottom-6 right-6 w-8 h-8 border-r-2 border-b-2 border-terminal-green/30 pointer-events-none" />
 
       <div className="container relative z-10 max-w-4xl text-center">
-        {/* System status bar */}
         <div className="flex items-center justify-center gap-3 mb-8 font-mono text-xs text-terminal-dim">
           <span className="flex items-center gap-1.5">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-terminal-green animate-pulse-glow" />
@@ -143,28 +144,28 @@ const Index = () => (
         </p>
 
         <h1 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-gradient-neon">
-          Simuladores prácticos de Amadeus para agentes de viajes
+          Central de simulación GDS
         </h1>
 
         <div className="inline-block terminal-border rounded px-4 py-1.5 mb-8">
           <p className="font-mono text-xs text-terminal-green tracking-widest uppercase animate-pulse-glow">
-            ● Central de Simulación GDS — Modo entrenamiento activo
+            ● Modo entrenamiento activo
           </p>
         </div>
 
         <p className="text-lg md:text-xl text-secondary-foreground max-w-2xl mx-auto mb-10">
           Practica vuelos, hoteles y coches sin usar el sistema real.
           <br />
-          <span className="text-terminal-cyan font-medium">Entrena antes de entrar en turno.</span>
+          <span className="text-terminal-cyan font-medium">Entrena antes de atender al Sr. García.</span>
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild size="lg" className="font-mono text-base bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30 hover:border-terminal-green hover:shadow-[0_0_20px_hsl(150_100%_50%/0.2)]">
-            <Link to="/pack">▶ Ver simuladores</Link>
+            <Link to="/simulador-vuelos">▶ Entrar en entrenamiento</Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="font-mono text-base gap-2 border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/10 hover:border-terminal-cyan hover:shadow-[0_0_20px_hsl(180_100%_50%/0.15)]">
             <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
-              Comprar ahora <ExternalLink className="h-4 w-4" />
+              Comprar acceso <ExternalLink className="h-4 w-4" />
             </a>
           </Button>
         </div>
@@ -179,20 +180,24 @@ const Index = () => (
             <span className="font-mono text-xs text-terminal-dim tracking-wider">SYSTEM_INFO</span>
           </div>
           <h2 className="font-mono text-2xl md:text-3xl text-gradient-neon mb-6">{"// QUÉ ES AMADEUS SURVIVOR"}</h2>
-          <p className="text-secondary-foreground text-lg mb-6 max-w-3xl">
-            Este proyecto ofrece simuladores prácticos para aprender Amadeus escribiendo comandos,
-            resolviendo misiones y practicando situaciones reales de agencia.
-          </p>
-          <div className="font-mono text-sm">
-            <p className="text-terminal-dim mb-3">{"// Pensado para:"}</p>
-            <ul className="space-y-2">
-              {audiences.map((a, i) => (
-                <li key={i} className="flex items-center gap-2 pl-2 border-l border-terminal-green/20">
-                  <ChevronRight className="h-3 w-3 text-terminal-cyan shrink-0" />
-                  <span className="text-secondary-foreground">{a}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="text-secondary-foreground text-lg mb-6 max-w-3xl space-y-4">
+            <p>
+              Amadeus Survivor es un sistema de entrenamiento para agentes de viajes basado en situaciones reales de agencia.
+            </p>
+            <p>
+              No es un curso teórico.
+            </p>
+            <p>
+              Es un entorno de práctica donde tendrás que escribir comandos, resolver reservas y reaccionar como en un turno real.
+            </p>
+            <p className="font-mono text-terminal-cyan text-base">
+              Aquí el terminal no perdona,<br />
+              los clientes no esperan,<br />
+              y los errores se pagan.
+            </p>
+            <p>
+              Practica en un entorno seguro antes de que te toque atender la llamada de verdad.
+            </p>
           </div>
         </div>
       </div>
@@ -202,7 +207,6 @@ const Index = () => (
     <section className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-20" />
       <div className="container max-w-5xl relative z-10">
-        {/* Terminal header frame */}
         <div className="terminal-border-glow rounded-md p-1 mb-10">
           <div className="bg-background rounded-sm p-4 text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
@@ -213,7 +217,7 @@ const Index = () => (
               <Terminal className="h-4 w-4 text-terminal-green" />
             </div>
             <h2 className="font-mono text-2xl md:text-3xl text-gradient-neon mb-1">SELECCIÓN DE MÓDULO</h2>
-            <p className="text-muted-foreground text-sm font-mono">Elige tu campo de batalla</p>
+            <p className="text-muted-foreground text-sm font-mono">Cada módulo entrena un escenario distinto. Elige por dónde empezar.</p>
           </div>
         </div>
 
@@ -225,13 +229,11 @@ const Index = () => (
                 key={to}
                 className={`relative rounded-md border ${c.border} ${c.borderHover} ${c.bg} ${c.glow} transition-all duration-300 group overflow-hidden`}
               >
-                {/* Module status indicator */}
                 <div className={`h-0.5 w-full ${c.line}`}>
                   <div className={`h-full w-1/3 ${c.dot} animate-pulse-glow`} />
                 </div>
 
                 <div className="p-5">
-                  {/* Module header */}
                   <div className="flex items-center justify-between mb-4">
                     <span className={`font-mono text-[10px] ${c.text} tracking-wider opacity-60`}>MODULE</span>
                     <span className={`inline-flex items-center gap-1 font-mono text-[10px] ${c.text}`}>
@@ -240,7 +242,6 @@ const Index = () => (
                     </span>
                   </div>
 
-                  {/* Logo */}
                   <div className={`w-full aspect-[4/3] rounded overflow-hidden mb-4 border ${c.border} bg-background/50`}>
                     <img src={image} alt={title} className="w-full h-full object-cover" />
                   </div>
@@ -255,7 +256,7 @@ const Index = () => (
                     </Button>
                     <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
                       <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
-                        Comprar <ExternalLink className="h-3 w-3" />
+                        Comprar acceso <ExternalLink className="h-3 w-3" />
                       </a>
                     </Button>
                   </div>
@@ -293,7 +294,8 @@ const Index = () => (
     {/* PARA QUIÉN ES */}
     <section className="py-16 md:py-20">
       <div className="container max-w-4xl">
-        <h2 className="font-mono text-2xl md:text-3xl text-gradient-neon mb-8">{"// PARA QUIÉN ES"}</h2>
+        <h2 className="font-mono text-2xl md:text-3xl text-gradient-neon mb-4">{"// PARA QUIÉN ES"}</h2>
+        <p className="text-secondary-foreground mb-8">Si te suena alguna de estas, este simulador es para ti:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {audiences.map((a, i) => (
             <div key={i} className="flex items-center gap-3 terminal-card p-4 border-l-2 border-l-terminal-violet/50 hover:border-l-terminal-violet transition-colors">
@@ -301,6 +303,14 @@ const Index = () => (
               <span className="text-secondary-foreground text-sm">{a}</span>
             </div>
           ))}
+        </div>
+        <div className="mt-8 terminal-card p-6 border border-terminal-green/20">
+          <p className="text-secondary-foreground">
+            Aquí puedes practicar sin presión, sin clientes esperando y sin romper nada.
+          </p>
+          <p className="text-terminal-cyan font-mono text-sm mt-2">
+            Y cuando llegue el Sr. García… que te pille entrenado.
+          </p>
         </div>
       </div>
     </section>
@@ -349,15 +359,16 @@ const Index = () => (
             {">"} Entrena antes de tu primer turno
           </h2>
           <p className="text-muted-foreground mb-8">
-            Empieza a practicar con los simuladores de Amadeus hoy mismo.
+            Practica antes de atender clientes reales.<br />
+            Sin licencia, sin riesgo, sin bloquearte en el terminal.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="font-mono text-base bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30 hover:shadow-[0_0_20px_hsl(150_100%_50%/0.2)]">
-              <Link to="/pack">Ver simuladores</Link>
+              <Link to="/simulador-vuelos">Entrar en entrenamiento</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="font-mono text-base gap-2 border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/10 hover:shadow-[0_0_20px_hsl(180_100%_50%/0.15)]">
               <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
-                Comprar en Hotmart <ExternalLink className="h-4 w-4" />
+                Comprar acceso <ExternalLink className="h-4 w-4" />
               </a>
             </Button>
           </div>
