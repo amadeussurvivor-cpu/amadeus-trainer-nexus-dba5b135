@@ -211,7 +211,7 @@ const Index = () => (
           <div className="bg-background rounded-sm p-4 text-center">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Terminal className="h-4 w-4 text-terminal-green" />
-              <p className="font-mono text-xs text-terminal-dim tracking-[0.3em] uppercase">
+              <p className="font-mono text-[9px] md:text-xs text-terminal-dim tracking-[0.15em] md:tracking-[0.3em] uppercase hidden sm:block">
                 A M A D E U S &nbsp; S U R V I V O R
               </p>
               <Terminal className="h-4 w-4 text-terminal-green" />
