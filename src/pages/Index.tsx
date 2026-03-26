@@ -101,7 +101,7 @@ const advantages = [
   { icon: Monitor, text: "Simulador realista" },
   { icon: Clock, text: "Acceso temporal flexible" },
   { icon: Lock, text: "Sin licencia GDS necesaria" },
-  { icon: Zap, text: "Resultados inmediatos" },
+  { icon: Zap, text: "Entrena antes del turno" },
 ];
 
 const Index = () => (
