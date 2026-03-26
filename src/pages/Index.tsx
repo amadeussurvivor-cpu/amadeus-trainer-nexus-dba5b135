@@ -325,8 +325,8 @@ const Index = () => (
             <div className="inline-flex items-center justify-center h-16 w-16 rounded-full border border-terminal-cyan/30 bg-terminal-cyan/5 mx-auto mb-4">
               <Play className="h-8 w-8 text-terminal-dim" />
             </div>
-            <p className="font-mono text-sm text-muted-foreground">Espacio para vídeo demo</p>
-            <p className="text-xs text-muted-foreground mt-1">Inserta aquí tu URL de YouTube</p>
+            <p className="font-mono text-sm text-muted-foreground">Así funciona el simulador</p>
+            <p className="text-xs text-muted-foreground mt-1">Ejemplo real del entrenamiento</p>
           </div>
         </div>
       </div>
