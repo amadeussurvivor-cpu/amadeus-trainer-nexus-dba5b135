@@ -9,9 +9,7 @@ import Index from "./pages/Index";
 import SimuladorVuelos from "./pages/SimuladorVuelos";
 import SimuladorHoteles from "./pages/SimuladorHoteles";
 import SimuladorCoches from "./pages/SimuladorCoches";
-import Pack from "./pages/Pack";
 import Sobre from "./pages/Sobre";
-import Blog from "./pages/Blog";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 
