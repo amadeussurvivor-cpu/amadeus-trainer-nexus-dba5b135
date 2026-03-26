@@ -28,9 +28,7 @@ const App = () => (
               <Route path="/simulador-vuelos" element={<SimuladorVuelos />} />
               <Route path="/simulador-hoteles" element={<SimuladorHoteles />} />
               <Route path="/simulador-coches" element={<SimuladorCoches />} />
-              <Route path="/pack" element={<Pack />} />
               <Route path="/sobre" element={<Sobre />} />
-              <Route path="/blog" element={<Blog />} />
               <Route path="/contacto" element={<Contacto />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

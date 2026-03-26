@@ -28,7 +28,6 @@ const Footer = () => (
           <h4 className="font-mono text-sm text-terminal-cyan mb-4">{"// ENLACES"}</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/sobre" className="text-muted-foreground hover:text-terminal-green transition-colors">Sobre el proyecto</Link></li>
-            <li><Link to="/blog" className="text-muted-foreground hover:text-terminal-green transition-colors">Blog</Link></li>
             <li><Link to="/contacto" className="text-muted-foreground hover:text-terminal-green transition-colors">Contacto</Link></li>
           </ul>
         </div>

@@ -1,6 +1,7 @@
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, AlertTriangle, ExternalLink, Monitor, Mail, Clock, Terminal } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle, AlertTriangle, ExternalLink, Monitor, Mail, Clock, Terminal, Users } from "lucide-react";
 
 type ColorTheme = "cyan" | "blue" | "violet";
 
@@ -37,8 +38,12 @@ interface SimuladorPageProps {
   seoTitle: string;
   seoDescription: string;
   seoKeywords: string;
+  heroIntro: string;
   description: string;
   features: string[];
+  howItWorks: string[];
+  audiences: string[];
+  includes: string[];
   missions: string[];
   hotmartUrl: string;
   colorTheme?: ColorTheme;
@@ -50,8 +55,12 @@ const SimuladorPage = ({
   seoTitle,
   seoDescription,
   seoKeywords,
+  heroIntro,
   description,
   features,
+  howItWorks,
+  audiences,
+  includes,
   missions,
   hotmartUrl,
   colorTheme = "cyan",
@@ -70,19 +79,44 @@ const SimuladorPage = ({
           <h1 className={`font-mono text-3xl md:text-5xl font-bold ${theme.glow} mb-6`}>
             {title}
           </h1>
-          <p className="text-lg text-secondary-foreground max-w-2xl">{description}</p>
+          <p className="text-lg text-secondary-foreground max-w-2xl whitespace-pre-line">{heroIntro}</p>
         </div>
       </section>
 
-      {/* Características */}
+      {/* Descripción */}
       <section className="py-12">
         <div className="container max-w-4xl">
-          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// CARACTERÍSTICAS"}</h2>
+          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// DESCRIPCIÓN"}</h2>
+          <div className="terminal-card p-6 border border-border">
+            <p className="text-secondary-foreground whitespace-pre-line">{description}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Qué aprenderás */}
+      <section className="py-12">
+        <div className="container max-w-4xl">
+          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// QUÉ APRENDERÁS"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {features.map((f, i) => (
               <div key={i} className={`flex items-start gap-3 terminal-card p-4 border ${theme.border}`}>
                 <CheckCircle className={`h-5 w-5 ${theme.icon} shrink-0 mt-0.5`} />
                 <span className="text-secondary-foreground text-sm">{f}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cómo funciona */}
+      <section className="py-12">
+        <div className="container max-w-4xl">
+          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// CÓMO FUNCIONA"}</h2>
+          <div className="space-y-3">
+            {howItWorks.map((step, i) => (
+              <div key={i} className={`flex items-center gap-3 terminal-card p-4 border ${theme.border}`}>
+                <Terminal className={`h-4 w-4 ${theme.icon} shrink-0`} />
+                <span className="text-sm text-secondary-foreground">{step}</span>
               </div>
             ))}
           </div>
@@ -104,15 +138,45 @@ const SimuladorPage = ({
         </div>
       </section>
 
+      {/* Para quién es */}
+      <section className="py-12">
+        <div className="container max-w-4xl">
+          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// PARA QUIÉN ES"}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {audiences.map((a, i) => (
+              <div key={i} className={`flex items-center gap-3 terminal-card p-4 border-l-2 border-l-${colorTheme === 'cyan' ? 'terminal-cyan' : colorTheme === 'blue' ? 'terminal-blue' : 'terminal-violet'}/50 border ${theme.border}`}>
+                <Users className={`h-5 w-5 ${theme.icon} shrink-0`} />
+                <span className="text-secondary-foreground text-sm">{a}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Incluye */}
+      <section className="py-12">
+        <div className="container max-w-4xl">
+          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// INCLUYE"}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {includes.map((item, i) => (
+              <div key={i} className={`flex items-start gap-3 terminal-card p-4 border ${theme.border}`}>
+                <CheckCircle className={`h-5 w-5 ${theme.icon} shrink-0 mt-0.5`} />
+                <span className="text-secondary-foreground text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Avisos */}
       <section className="py-12">
         <div className="container max-w-4xl">
-          <h2 className="font-mono text-xl md:text-2xl text-terminal-amber mb-8">{"// AVISOS IMPORTANTES"}</h2>
+          <h2 className="font-mono text-xl md:text-2xl text-terminal-amber mb-8">{"// AVISO"}</h2>
           <div className="space-y-4">
             {[
-              { icon: AlertTriangle, text: "Este simulador NO es oficial de Amadeus IT Group." },
+              { icon: AlertTriangle, text: "No es el sistema Amadeus real. Es un simulador para práctica." },
+              { icon: Monitor, text: "Este simulador está diseñado para formación. No requiere licencia GDS y no realiza reservas reales." },
               { icon: Clock, text: "El acceso es temporal desde la fecha de activación." },
-              { icon: Monitor, text: "Se recomienda usar desde un PC para la mejor experiencia." },
               { icon: Mail, text: "Recibirás el código de acceso por email tras la compra." },
             ].map(({ icon: Icon, text }, i) => (
               <div key={i} className="flex items-start gap-3 p-4 rounded-md border border-terminal-amber/30 bg-terminal-amber/5">
@@ -134,11 +198,16 @@ const SimuladorPage = ({
           <p className="text-muted-foreground mb-8">
             Accede al simulador y empieza a practicar hoy mismo.
           </p>
-          <Button asChild size="lg" className={`font-mono text-base gap-2 ${theme.btn}`}>
-            <a href={hotmartUrl} target="_blank" rel="noopener noreferrer">
-              Comprar en Hotmart <ExternalLink className="h-4 w-4" />
-            </a>
-          </Button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg" className={`font-mono text-base gap-2 ${theme.btn}`}>
+              <a href={hotmartUrl} target="_blank" rel="noopener noreferrer">
+                Comprar acceso al simulador <ExternalLink className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="font-mono text-base gap-2 border-border text-foreground hover:bg-secondary">
+              <Link to="/">Volver a la central</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

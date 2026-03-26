@@ -5,20 +5,42 @@ const HOTMART_VUELOS_URL = "https://hotmart.com/es/marketplace"; // placeholder
 const SimuladorVuelos = () => (
   <SimuladorPage
     module="vuelos"
-    title="Simulador Amadeus – Módulo Vuelos"
+    title="Amadeus Survivor – Módulo Vuelos"
     seoTitle="Simulador Amadeus Vuelos – Aprende a crear PNR de vuelos | Amadeus Survivor"
     seoDescription="Simulador práctico de Amadeus para aprender a crear PNR de vuelos. Practica comandos reales de disponibilidad, reserva y emisión en un entorno seguro."
     seoKeywords="simulador amadeus vuelos, pnr vuelos, comandos amadeus, reserva vuelos gds, curso amadeus vuelos"
-    description="Simulador práctico para aprender a crear un PNR básico de vuelos en Amadeus. Practica disponibilidad, reserva, datos de pasajero y emisión con comandos reales en un entorno sandbox seguro."
+    heroIntro={`Agencia en cuarentena.\n\nEntrena lo que necesitas para no bloquearte en el terminal:\ndisponibilidad, venta, PNR, datos de pasajero y emisión.\n\nAquí puedes fallar.\nEn el turno real no.`}
+    description={`Este módulo es un simulador práctico para aprender a trabajar vuelos en Amadeus.\n\nNo es un vídeo.\nNo es un PDF.\nNo es teoría.\n\nEs un terminal simulado donde escribes comandos,\nves displays,\ny practicas como si estuvieras en una agencia real.\n\nPuedes equivocarte, repetir y volver a empezar\nsin usar el sistema real.`}
     features={[
-      "Terminal interactiva con comandos reales de Amadeus",
-      "Creación de PNR paso a paso",
-      "Búsqueda de disponibilidad de vuelos (AN)",
-      "Selección de vuelos y clases de reserva (SS)",
-      "Introducción de datos de pasajero (NM, AP, TK)",
-      "Práctica de emisión de billetes",
-      "Modificación y cancelación de reservas",
-      "Entorno sandbox sin riesgo",
+      "Codificación de ciudades y compañías",
+      "Disponibilidad de vuelos",
+      "Venta de segmentos",
+      "Creación de PNR",
+      "Datos de pasajero",
+      "Tiempo límite",
+      "Tarificación",
+      "Cierre de reserva",
+    ]}
+    howItWorks={[
+      "El simulador funciona como un terminal",
+      "Escribes comandos y recibes respuestas",
+      "Avanzas siguiendo ejercicios guiados",
+      "Cada misión reproduce situaciones reales de agencia",
+      "Puedes practicar las veces que quieras",
+    ]}
+    audiences={[
+      "Estudiantes de turismo",
+      "Agentes nuevos",
+      "Personas sin acceso al sistema real",
+      "Formación interna",
+      "Cambio de sector",
+    ]}
+    includes={[
+      "Acceso online",
+      "Uso recomendado en ordenador",
+      "Acceso durante 6 meses",
+      "Código enviado por email",
+      "Entorno no oficial",
     ]}
     missions={[
       "Buscar disponibilidad Madrid-Barcelona",
