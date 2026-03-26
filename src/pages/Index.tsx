@@ -36,7 +36,7 @@ const modules = [
     image: logoHoteles,
     title: "HOSPEDAJE / HOTEL",
     subtitle: "Gestión de Hospedaje",
-    desc: "Practica reservas de hotel: búsqueda de disponibilidad, tarifas, confirmación y modificaciones.",
+    desc: "Vuelos cancelados. Pasajeros sin hotel. Entrena antes de que te toque resolverlo.",
     to: "/simulador-hoteles",
     color: "violet" as const,
   },
