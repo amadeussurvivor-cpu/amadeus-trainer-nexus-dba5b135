@@ -182,7 +182,7 @@ const SimuladorPage = ({
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// PARA QUIÉN ES"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {audiences.map((a, i) => (
-              <div key={i} className={`flex items-center gap-3 terminal-card p-4 border-l-2 border-l-${colorTheme === 'cyan' ? 'terminal-cyan' : colorTheme === 'blue' ? 'terminal-blue' : 'terminal-violet'}/50 border ${theme.border}`}>
+              <div key={i} className={`flex items-center gap-3 terminal-card p-4 border-l-2 border ${theme.border}`} style={{ borderLeftColor: `hsl(var(--terminal-${colorTheme === 'green' ? 'green' : colorTheme === 'cyan' ? 'cyan' : colorTheme === 'blue' ? 'blue' : 'violet'}) / 0.5)` }}>
                 <Users className={`h-5 w-5 ${theme.icon} shrink-0`} />
                 <span className="text-secondary-foreground text-sm">{a}</span>
               </div>
