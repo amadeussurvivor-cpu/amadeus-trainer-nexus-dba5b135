@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle, AlertTriangle, ExternalLink, Monitor, Mail, Clock, Terminal, Users } from "lucide-react";
 
-type ColorTheme = "cyan" | "blue" | "violet";
+type ColorTheme = "cyan" | "blue" | "violet" | "green";
 
 const themeClasses: Record<ColorTheme, { icon: string; border: string; borderHover: string; heading: string; btn: string; glow: string }> = {
   cyan: {
@@ -13,6 +13,14 @@ const themeClasses: Record<ColorTheme, { icon: string; border: string; borderHov
     heading: "text-terminal-cyan",
     btn: "bg-terminal-cyan/20 border border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/30",
     glow: "text-terminal-cyan",
+  },
+  green: {
+    icon: "text-terminal-green",
+    border: "border-terminal-green/20",
+    borderHover: "border-terminal-green/20 hover:border-terminal-green/50",
+    heading: "text-terminal-green",
+    btn: "bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30",
+    glow: "text-terminal-green",
   },
   blue: {
     icon: "text-terminal-blue",
