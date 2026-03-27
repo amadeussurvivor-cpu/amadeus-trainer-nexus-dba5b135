@@ -143,19 +143,38 @@ const SimuladorPage = ({
       </section>
 
       {/* Misiones */}
-      <section className="py-12">
-        <div className="container max-w-4xl">
-          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// MISIONES"}</h2>
-          <div className="space-y-3">
-            {missions.map((m, i) => (
-              <div key={i} className={`flex items-center gap-3 terminal-card-hover p-4 border ${theme.borderHover}`}>
-                <Terminal className={`h-4 w-4 ${theme.icon} shrink-0`} />
-                <span className="font-mono text-sm text-foreground">{`MISIÓN ${i + 1}: ${m}`}</span>
-              </div>
-            ))}
+      {missions && missions.length > 0 && (
+        <section className="py-12">
+          <div className="container max-w-4xl">
+            <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// MISIONES"}</h2>
+            <div className="space-y-3">
+              {missions.map((m, i) => (
+                <div key={i} className={`flex items-center gap-3 terminal-card-hover p-4 border ${theme.borderHover}`}>
+                  <Terminal className={`h-4 w-4 ${theme.icon} shrink-0`} />
+                  <span className="font-mono text-sm text-foreground">{`MISIÓN ${i + 1}: ${m}`}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Qué encontrarás en el módulo */}
+      {moduleContents && moduleContents.length > 0 && (
+        <section className="py-12">
+          <div className="container max-w-4xl">
+            <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// QUÉ ENCONTRARÁS EN EL MÓDULO"}</h2>
+            <div className="space-y-3">
+              {moduleContents.map((item, i) => (
+                <div key={i} className={`flex items-center gap-3 terminal-card p-4 border ${theme.border}`}>
+                  <CheckCircle className={`h-4 w-4 ${theme.icon} shrink-0`} />
+                  <span className="text-sm text-secondary-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Para quién es */}
       <section className="py-12">
