@@ -1,4 +1,5 @@
 import SimuladorPage from "@/components/SimuladorPage";
+import logoVuelos from "@/assets/logo_vuelos.png";
 
 const HOTMART_VUELOS_URL = "https://hotmart.com/es/marketplace"; // placeholder
 
@@ -42,15 +43,16 @@ const SimuladorVuelos = () => (
       "Código enviado por email",
       "Entorno no oficial",
     ]}
-    missions={[
-      "Buscar disponibilidad Madrid-Barcelona",
-      "Crear un PNR básico con un pasajero",
-      "Añadir datos de contacto y límite de emisión",
-      "Modificar una reserva existente",
-      "Cancelar segmentos de un PNR",
+    moduleContents={[
+      "Manual maestro",
+      "Chuleta rápida",
+      "Prácticas guiadas",
+      "Terminal simulado",
+      "Entrenamiento antes de que se abran las líneas",
     ]}
     hotmartUrl={HOTMART_VUELOS_URL}
-    colorTheme="cyan"
+    colorTheme="green"
+    heroImage={logoVuelos}
   />
 );
 

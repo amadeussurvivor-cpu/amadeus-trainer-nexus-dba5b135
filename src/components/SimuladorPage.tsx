@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle, AlertTriangle, ExternalLink, Monitor, Mail, Clock, Terminal, Users } from "lucide-react";
 
-type ColorTheme = "cyan" | "blue" | "violet";
+type ColorTheme = "cyan" | "blue" | "violet" | "green";
 
 const themeClasses: Record<ColorTheme, { icon: string; border: string; borderHover: string; heading: string; btn: string; glow: string }> = {
   cyan: {
@@ -13,6 +13,14 @@ const themeClasses: Record<ColorTheme, { icon: string; border: string; borderHov
     heading: "text-terminal-cyan",
     btn: "bg-terminal-cyan/20 border border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/30",
     glow: "text-terminal-cyan",
+  },
+  green: {
+    icon: "text-terminal-green",
+    border: "border-terminal-green/20",
+    borderHover: "border-terminal-green/20 hover:border-terminal-green/50",
+    heading: "text-terminal-green",
+    btn: "bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30",
+    glow: "text-terminal-green",
   },
   blue: {
     icon: "text-terminal-blue",
@@ -44,9 +52,11 @@ interface SimuladorPageProps {
   howItWorks: string[];
   audiences: string[];
   includes: string[];
-  missions: string[];
+  missions?: string[];
+  moduleContents?: string[];
   hotmartUrl: string;
   colorTheme?: ColorTheme;
+  heroImage?: string;
 }
 
 const SimuladorPage = ({
@@ -62,8 +72,10 @@ const SimuladorPage = ({
   audiences,
   includes,
   missions,
+  moduleContents,
   hotmartUrl,
   colorTheme = "cyan",
+  heroImage,
 }: SimuladorPageProps) => {
   const theme = themeClasses[colorTheme];
 
@@ -75,6 +87,13 @@ const SimuladorPage = ({
       <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
         <div className="container max-w-4xl relative z-10">
+          {heroImage && (
+            <div className="flex flex-col items-center mb-8">
+              <img src={heroImage} alt={`${module} logo`} className="w-32 h-32 md:w-40 md:h-40 object-contain mb-4" />
+              <p className={`font-mono text-xs tracking-widest uppercase ${theme.glow} opacity-70`}>Amadeus Survivor</p>
+              <p className={`font-mono text-sm tracking-widest uppercase ${theme.glow}`}>{module}</p>
+            </div>
+          )}
           <p className="font-mono text-sm text-terminal-dim mb-4">{`> module.load("${module}")`}</p>
           <h1 className={`font-mono text-3xl md:text-5xl font-bold ${theme.glow} mb-6`}>
             {title}
@@ -124,19 +143,38 @@ const SimuladorPage = ({
       </section>
 
       {/* Misiones */}
-      <section className="py-12">
-        <div className="container max-w-4xl">
-          <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// MISIONES"}</h2>
-          <div className="space-y-3">
-            {missions.map((m, i) => (
-              <div key={i} className={`flex items-center gap-3 terminal-card-hover p-4 border ${theme.borderHover}`}>
-                <Terminal className={`h-4 w-4 ${theme.icon} shrink-0`} />
-                <span className="font-mono text-sm text-foreground">{`MISIÓN ${i + 1}: ${m}`}</span>
-              </div>
-            ))}
+      {missions && missions.length > 0 && (
+        <section className="py-12">
+          <div className="container max-w-4xl">
+            <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// MISIONES"}</h2>
+            <div className="space-y-3">
+              {missions.map((m, i) => (
+                <div key={i} className={`flex items-center gap-3 terminal-card-hover p-4 border ${theme.borderHover}`}>
+                  <Terminal className={`h-4 w-4 ${theme.icon} shrink-0`} />
+                  <span className="font-mono text-sm text-foreground">{`MISIÓN ${i + 1}: ${m}`}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Qué encontrarás en el módulo */}
+      {moduleContents && moduleContents.length > 0 && (
+        <section className="py-12">
+          <div className="container max-w-4xl">
+            <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// QUÉ ENCONTRARÁS EN EL MÓDULO"}</h2>
+            <div className="space-y-3">
+              {moduleContents.map((item, i) => (
+                <div key={i} className={`flex items-center gap-3 terminal-card p-4 border ${theme.border}`}>
+                  <CheckCircle className={`h-4 w-4 ${theme.icon} shrink-0`} />
+                  <span className="text-sm text-secondary-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Para quién es */}
       <section className="py-12">
@@ -144,7 +182,7 @@ const SimuladorPage = ({
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// PARA QUIÉN ES"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {audiences.map((a, i) => (
-              <div key={i} className={`flex items-center gap-3 terminal-card p-4 border-l-2 border-l-${colorTheme === 'cyan' ? 'terminal-cyan' : colorTheme === 'blue' ? 'terminal-blue' : 'terminal-violet'}/50 border ${theme.border}`}>
+              <div key={i} className={`flex items-center gap-3 terminal-card p-4 border-l-2 border ${theme.border}`} style={{ borderLeftColor: `hsl(var(--terminal-${colorTheme === 'green' ? 'green' : colorTheme === 'cyan' ? 'cyan' : colorTheme === 'blue' ? 'blue' : 'violet'}) / 0.5)` }}>
                 <Users className={`h-5 w-5 ${theme.icon} shrink-0`} />
                 <span className="text-secondary-foreground text-sm">{a}</span>
               </div>
