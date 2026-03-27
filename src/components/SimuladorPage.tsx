@@ -89,7 +89,7 @@ const SimuladorPage = ({
         <div className="container max-w-4xl relative z-10">
           {heroImage && (
             <div className="flex flex-col items-center mb-8">
-              <img src={heroImage} alt={`${module} logo`} className="w-32 h-32 md:w-40 md:h-40 object-contain mb-4" />
+              <img src={heroImage} alt={`${module} logo`} className="w-44 h-44 md:w-56 md:h-56 object-contain mb-6" />
               <p className={`font-mono text-xs tracking-widest uppercase ${theme.glow} opacity-70`}>Amadeus Survivor</p>
               <p className={`font-mono text-sm tracking-widest uppercase ${theme.glow}`}>{module}</p>
             </div>
