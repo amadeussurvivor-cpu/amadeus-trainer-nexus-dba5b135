@@ -52,9 +52,11 @@ interface SimuladorPageProps {
   howItWorks: string[];
   audiences: string[];
   includes: string[];
-  missions: string[];
+  missions?: string[];
+  moduleContents?: string[];
   hotmartUrl: string;
   colorTheme?: ColorTheme;
+  heroImage?: string;
 }
 
 const SimuladorPage = ({
