@@ -72,8 +72,10 @@ const SimuladorPage = ({
   audiences,
   includes,
   missions,
+  moduleContents,
   hotmartUrl,
   colorTheme = "cyan",
+  heroImage,
 }: SimuladorPageProps) => {
   const theme = themeClasses[colorTheme];
 
