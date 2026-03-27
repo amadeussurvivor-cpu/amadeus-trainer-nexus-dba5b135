@@ -88,10 +88,8 @@ const SimuladorPage = ({
         <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
         <div className="container max-w-4xl relative z-10">
           {heroImage && (
-            <div className="flex flex-col items-center mb-8">
-              <img src={heroImage} alt={`${module} logo`} className="w-60 h-60 md:w-80 md:h-80 object-contain mb-8" />
-              <p className={`font-mono text-xs tracking-widest uppercase ${theme.glow} opacity-70`}>Amadeus Survivor</p>
-              <p className={`font-mono text-sm tracking-widest uppercase ${theme.glow}`}>{module}</p>
+            <div className="flex flex-col items-center mb-4">
+              <img src={heroImage} alt={`${module} logo`} className="w-60 h-60 md:w-80 md:h-80 object-contain" />
             </div>
           )}
           <p className="font-mono text-sm text-terminal-dim mb-4">{`> module.load("${module}")`}</p>
