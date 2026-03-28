@@ -86,7 +86,7 @@ const SimuladorPage = ({
       {/* Hero */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
-        <div className="container max-w-4xl relative z-10">
+        <div className="container max-w-5xl relative z-10">
           <div className={`flex ${heroImage ? 'flex-col md:flex-row md:items-center gap-6' : 'flex-col'} mb-6`}>
             {heroImage && (
               <img src={heroImage} alt={`${module} logo`} className="w-60 h-60 md:w-80 md:h-80 object-contain shrink-0" />

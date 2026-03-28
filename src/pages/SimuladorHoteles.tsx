@@ -1,4 +1,5 @@
 import SimuladorPage from "@/components/SimuladorPage";
+import logoHoteles from "@/assets/logo_hoteles_module.png";
 
 const HOTMART_HOTELES_URL = "https://hotmart.com/es/marketplace"; // placeholder
 
@@ -51,6 +52,8 @@ const SimuladorHoteles = () => (
     ]}
     hotmartUrl={HOTMART_HOTELES_URL}
     colorTheme="violet"
+    heroImage={logoHoteles}
+    underConstruction
   />
 );
 
