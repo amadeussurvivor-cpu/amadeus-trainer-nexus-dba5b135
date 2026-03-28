@@ -35,7 +35,7 @@ const modules = [
     icon: Hotel,
     image: logoHoteles,
     title: "HOTELES / HOTEL",
-    subtitle: "Gestión de Hospedaje",
+    subtitle: "Gestión de Hoteles",
     desc: "Vuelos cancelados. Pasajeros sin hotel. Entrena antes de que te toque resolverlo.",
     to: "/simulador-hoteles",
     color: "violet" as const,

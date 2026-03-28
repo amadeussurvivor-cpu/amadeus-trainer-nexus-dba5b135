@@ -1,4 +1,5 @@
 import SimuladorPage from "@/components/SimuladorPage";
+import logoCoches from "@/assets/logo_coches_module.png";
 
 const HOTMART_COCHES_URL = "https://hotmart.com/es/marketplace"; // placeholder
 
@@ -9,17 +10,16 @@ const SimuladorCoches = () => (
     seoTitle="Simulador Amadeus Coches – Aprende reservas de coches GDS | Amadeus Survivor"
     seoDescription="Simulador práctico de Amadeus para aprender a gestionar reservas de coches. Practica búsqueda, categorías, tarifas y confirmación en un entorno seguro."
     seoKeywords="simulador amadeus coches, reserva coches gds, rent a car amadeus, curso amadeus coches"
-    heroIntro={`Nochevieja. Los trenes no funcionan y todo el mundo pide coche.\n\nEntrena lo que necesitas para responder rápido:\ncodificación, disponibilidad, categorías, tarifas y reserva.\n\nAquí puedes probar.\nEn el turno real no hay tiempo.`}
+    heroIntro={`Nochevieja. Sin trenes.\n\nAlquilar un coche es la última esperanza.\n\nMás vale que sepas usar el sistema.`}
     description={`Este módulo es un simulador práctico para aprender a gestionar reservas de coches en Amadeus.\n\nNo es un vídeo.\nNo es un PDF.\nNo es teoría.\n\nEs un terminal simulado donde escribes comandos,\nves displays,\ny practicas como si estuvieras en una agencia real.\n\nPuedes equivocarte, repetir y volver a empezar\nsin usar el sistema real.`}
     features={[
-      "Codificación de ciudades y compañías de alquiler",
-      "Búsqueda de disponibilidad por ciudad y fechas",
-      "Categorías de vehículos",
-      "Comparación de tarifas entre compañías",
-      "Confirmación de reservas de coche",
-      "Modificación de fechas y categorías",
-      "Cancelación de reservas",
-      "Cierre de reserva",
+      "Entender seguros, franquicias y condiciones reales",
+      "Buscar información y disponibilidad de coches",
+      "Interpretar el sistema ACRISS (tipos de vehículos)",
+      "Gestionar tarifas y extras sin liarte",
+      "Visualizar, enviar y gestionar reservas",
+      "Cerrar la reserva y emitir",
+      "Modificar reservas y resolver incidencias sin entrar en pánico",
     ]}
     howItWorks={[
       "El simulador funciona como un terminal",
@@ -42,15 +42,16 @@ const SimuladorCoches = () => (
       "Código enviado por email",
       "Entorno no oficial",
     ]}
-    missions={[
-      "Buscar coches disponibles en Madrid",
-      "Comparar categorías y tarifas",
-      "Confirmar una reserva de coche",
-      "Modificar una reserva existente",
-      "Cancelar una reserva de coche",
+    moduleContents={[
+      "Manual maestro",
+      "Chuleta rápida",
+      "Prácticas guiadas",
+      "Terminal simulado",
+      "Entrenamiento antes de atender clientes reales",
     ]}
     hotmartUrl={HOTMART_COCHES_URL}
     colorTheme="blue"
+    heroImage={logoCoches}
   />
 );
 

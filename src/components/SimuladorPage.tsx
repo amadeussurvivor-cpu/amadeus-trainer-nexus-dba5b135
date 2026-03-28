@@ -57,6 +57,7 @@ interface SimuladorPageProps {
   hotmartUrl: string;
   colorTheme?: ColorTheme;
   heroImage?: string;
+  underConstruction?: boolean;
 }
 
 const SimuladorPage = ({
@@ -76,6 +77,7 @@ const SimuladorPage = ({
   hotmartUrl,
   colorTheme = "cyan",
   heroImage,
+  underConstruction = false,
 }: SimuladorPageProps) => {
   const theme = themeClasses[colorTheme];
 
@@ -83,10 +85,23 @@ const SimuladorPage = ({
     <div>
       <SEOHead title={seoTitle} description={seoDescription} keywords={seoKeywords} />
 
+      {/* Under Construction Banner */}
+      {underConstruction && (
+        <section className="pt-16 md:pt-24">
+          <div className="container max-w-5xl">
+            <div className={`terminal-card p-8 md:p-10 border-2 ${theme.border} text-center`}>
+              <p className={`font-mono text-lg md:text-xl font-bold ${theme.glow} mb-4`}>{">"} MÓDULO EN CONSTRUCCIÓN</p>
+              <p className="text-secondary-foreground mb-2">Este módulo estará disponible próximamente.</p>
+              <p className="text-muted-foreground text-sm">Puedes empezar ya con Vuelos y Coches.</p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Hero */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
-        <div className="container max-w-4xl relative z-10">
+        <div className="container max-w-5xl relative z-10">
           <div className={`flex ${heroImage ? 'flex-col md:flex-row md:items-center gap-6' : 'flex-col'} mb-6`}>
             {heroImage && (
               <img src={heroImage} alt={`${module} logo`} className="w-60 h-60 md:w-80 md:h-80 object-contain shrink-0" />
@@ -104,7 +119,7 @@ const SimuladorPage = ({
 
       {/* Descripción */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// DESCRIPCIÓN"}</h2>
           <div className="terminal-card p-6 border border-border">
             <p className="text-secondary-foreground whitespace-pre-line">{description}</p>
@@ -114,7 +129,7 @@ const SimuladorPage = ({
 
       {/* Qué aprenderás */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// QUÉ APRENDERÁS"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {features.map((f, i) => (
@@ -129,7 +144,7 @@ const SimuladorPage = ({
 
       {/* Cómo funciona */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// CÓMO FUNCIONA"}</h2>
           <div className="space-y-3">
             {howItWorks.map((step, i) => (
@@ -145,7 +160,7 @@ const SimuladorPage = ({
       {/* Misiones */}
       {missions && missions.length > 0 && (
         <section className="py-12">
-          <div className="container max-w-4xl">
+          <div className="container max-w-5xl">
             <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// MISIONES"}</h2>
             <div className="space-y-3">
               {missions.map((m, i) => (
@@ -162,7 +177,7 @@ const SimuladorPage = ({
       {/* Qué encontrarás en el módulo */}
       {moduleContents && moduleContents.length > 0 && (
         <section className="py-12">
-          <div className="container max-w-4xl">
+          <div className="container max-w-5xl">
             <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// QUÉ ENCONTRARÁS EN EL MÓDULO"}</h2>
             <div className="space-y-3">
               {moduleContents.map((item, i) => (
@@ -178,7 +193,7 @@ const SimuladorPage = ({
 
       {/* Para quién es */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// PARA QUIÉN ES"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {audiences.map((a, i) => (
@@ -193,7 +208,7 @@ const SimuladorPage = ({
 
       {/* Incluye */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// INCLUYE"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {includes.map((item, i) => (
@@ -208,7 +223,7 @@ const SimuladorPage = ({
 
       {/* Avisos */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className="font-mono text-xl md:text-2xl text-terminal-amber mb-8">{"// AVISO"}</h2>
           <div className="space-y-4">
             {[
