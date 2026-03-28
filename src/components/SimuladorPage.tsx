@@ -119,7 +119,7 @@ const SimuladorPage = ({
 
       {/* Descripción */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// DESCRIPCIÓN"}</h2>
           <div className="terminal-card p-6 border border-border">
             <p className="text-secondary-foreground whitespace-pre-line">{description}</p>
@@ -129,7 +129,7 @@ const SimuladorPage = ({
 
       {/* Qué aprenderás */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// QUÉ APRENDERÁS"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {features.map((f, i) => (
@@ -144,7 +144,7 @@ const SimuladorPage = ({
 
       {/* Cómo funciona */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// CÓMO FUNCIONA"}</h2>
           <div className="space-y-3">
             {howItWorks.map((step, i) => (
@@ -160,7 +160,7 @@ const SimuladorPage = ({
       {/* Misiones */}
       {missions && missions.length > 0 && (
         <section className="py-12">
-          <div className="container max-w-4xl">
+          <div className="container max-w-5xl">
             <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// MISIONES"}</h2>
             <div className="space-y-3">
               {missions.map((m, i) => (
@@ -177,7 +177,7 @@ const SimuladorPage = ({
       {/* Qué encontrarás en el módulo */}
       {moduleContents && moduleContents.length > 0 && (
         <section className="py-12">
-          <div className="container max-w-4xl">
+          <div className="container max-w-5xl">
             <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// QUÉ ENCONTRARÁS EN EL MÓDULO"}</h2>
             <div className="space-y-3">
               {moduleContents.map((item, i) => (
@@ -193,7 +193,7 @@ const SimuladorPage = ({
 
       {/* Para quién es */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// PARA QUIÉN ES"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {audiences.map((a, i) => (
@@ -208,7 +208,7 @@ const SimuladorPage = ({
 
       {/* Incluye */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className={`font-mono text-xl md:text-2xl ${theme.heading} mb-8`}>{"// INCLUYE"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {includes.map((item, i) => (
@@ -223,7 +223,7 @@ const SimuladorPage = ({
 
       {/* Avisos */}
       <section className="py-12">
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
           <h2 className="font-mono text-xl md:text-2xl text-terminal-amber mb-8">{"// AVISO"}</h2>
           <div className="space-y-4">
             {[
