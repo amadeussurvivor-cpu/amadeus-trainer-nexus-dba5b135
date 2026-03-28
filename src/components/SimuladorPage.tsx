@@ -87,16 +87,18 @@ const SimuladorPage = ({
       <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-30" />
         <div className="container max-w-4xl relative z-10">
-          {heroImage && (
-            <div className="flex flex-col items-center mb-4">
-              <img src={heroImage} alt={`${module} logo`} className="w-60 h-60 md:w-80 md:h-80 object-contain" />
+          <div className={`flex ${heroImage ? 'flex-col md:flex-row md:items-center gap-6' : 'flex-col'} mb-6`}>
+            {heroImage && (
+              <img src={heroImage} alt={`${module} logo`} className="w-60 h-60 md:w-80 md:h-80 object-contain shrink-0" />
+            )}
+            <div>
+              <p className="font-mono text-sm text-terminal-dim mb-4">{`> module.load("${module}")`}</p>
+              <h1 className={`font-mono text-3xl md:text-5xl font-bold ${theme.glow} mb-6`}>
+                {title}
+              </h1>
+              <p className="text-lg text-secondary-foreground max-w-2xl whitespace-pre-line">{heroIntro}</p>
             </div>
-          )}
-          <p className="font-mono text-sm text-terminal-dim mb-4">{`> module.load("${module}")`}</p>
-          <h1 className={`font-mono text-3xl md:text-5xl font-bold ${theme.glow} mb-6`}>
-            {title}
-          </h1>
-          <p className="text-lg text-secondary-foreground max-w-2xl whitespace-pre-line">{heroIntro}</p>
+          </div>
         </div>
       </section>
 
