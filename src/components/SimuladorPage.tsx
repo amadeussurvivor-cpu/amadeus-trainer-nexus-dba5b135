@@ -57,6 +57,7 @@ interface SimuladorPageProps {
   hotmartUrl: string;
   colorTheme?: ColorTheme;
   heroImage?: string;
+  underConstruction?: boolean;
 }
 
 const SimuladorPage = ({
