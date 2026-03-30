@@ -55,6 +55,7 @@ interface SimuladorPageProps {
   missions?: string[];
   moduleContents?: string[];
   hotmartUrl: string;
+  trainingUrl?: string;
   colorTheme?: ColorTheme;
   heroImage?: string;
   underConstruction?: boolean;
