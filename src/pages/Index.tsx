@@ -22,6 +22,7 @@ const modules = [
     desc: "Agencia en cuarentena. Entrena lo que necesitas para no bloquearte en el terminal.",
     to: "/simulador-vuelos",
     color: "cyan" as const,
+    active: true,
   },
   {
     icon: Car,
@@ -31,6 +32,7 @@ const modules = [
     desc: "No hay trenes. Solo quedan coches. Más vale que sepas usar el sistema.",
     to: "/simulador-coches",
     color: "blue" as const,
+    active: false,
   },
   {
     icon: Hotel,
@@ -40,6 +42,7 @@ const modules = [
     desc: "Vuelos cancelados. Pasajeros sin hotel. Entrena antes de que te toque resolverlo.",
     to: "/simulador-hoteles",
     color: "violet" as const,
+    active: false,
   },
 ];
 
