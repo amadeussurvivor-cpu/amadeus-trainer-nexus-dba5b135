@@ -379,9 +379,9 @@ const Index = () => (
             Practica antes de atender clientes reales.<br />
             Sin licencia, sin riesgo, sin bloquearte en el terminal.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="font-mono text-base bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30 hover:shadow-[0_0_20px_hsl(150_100%_50%/0.2)]">
-              <Link to="/simulador-vuelos">Entrar en entrenamiento</Link>
+              <a href={SIMULATOR_URL} target="_blank" rel="noopener noreferrer">Entrar en entrenamiento</a>
             </Button>
             <Button asChild size="lg" variant="outline" className="font-mono text-base gap-2 border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/10 hover:shadow-[0_0_20px_hsl(180_100%_50%/0.15)]">
               <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
