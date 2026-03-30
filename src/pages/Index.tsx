@@ -10,7 +10,8 @@ import logoVuelos from "@/assets/logo_vuelos.png";
 import logoCoches from "@/assets/logo_coches.png";
 import logoHoteles from "@/assets/logo_hoteles.png";
 
-const HOTMART_URL = "https://hotmart.com/es/marketplace"; // placeholder
+const HOTMART_URL = "https://pay.hotmart.com/M104903692I";
+const SIMULATOR_URL = "https://amadeussurvivor-vuelos.lovable.app";
 
 const modules = [
   {
@@ -21,6 +22,7 @@ const modules = [
     desc: "Agencia en cuarentena. Entrena lo que necesitas para no bloquearte en el terminal.",
     to: "/simulador-vuelos",
     color: "cyan" as const,
+    active: true,
   },
   {
     icon: Car,
@@ -30,6 +32,7 @@ const modules = [
     desc: "No hay trenes. Solo quedan coches. Más vale que sepas usar el sistema.",
     to: "/simulador-coches",
     color: "blue" as const,
+    active: false,
   },
   {
     icon: Hotel,
@@ -39,6 +42,7 @@ const modules = [
     desc: "Vuelos cancelados. Pasajeros sin hotel. Entrena antes de que te toque resolverlo.",
     to: "/simulador-hoteles",
     color: "violet" as const,
+    active: false,
   },
 ];
 
@@ -161,7 +165,7 @@ const Index = () => (
 
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild size="lg" className="font-mono text-base bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30 hover:border-terminal-green hover:shadow-[0_0_20px_hsl(150_100%_50%/0.2)]">
-            <Link to="/simulador-vuelos">▶ Entrar en entrenamiento</Link>
+            <a href={SIMULATOR_URL} target="_blank" rel="noopener noreferrer">▶ Entrar en entrenamiento</a>
           </Button>
           <Button asChild size="lg" variant="outline" className="font-mono text-base gap-2 border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/10 hover:border-terminal-cyan hover:shadow-[0_0_20px_hsl(180_100%_50%/0.15)]">
             <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
@@ -222,23 +226,23 @@ const Index = () => (
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {modules.map(({ image, title, subtitle, desc, to, color }) => {
+          {modules.map(({ image, title, subtitle, desc, to, color, active }) => {
             const c = colorMap[color];
             return (
               <div
                 key={to}
-                className={`relative rounded-md border ${c.border} ${c.borderHover} ${c.bg} ${c.glow} transition-all duration-300 group overflow-hidden`}
+                className={`relative rounded-md border ${c.border} ${active ? c.borderHover : ''} ${c.bg} ${active ? c.glow : ''} transition-all duration-300 group overflow-hidden ${!active ? 'grayscale opacity-60' : ''}`}
               >
                 <div className={`h-0.5 w-full ${c.line}`}>
-                  <div className={`h-full w-1/3 ${c.dot} animate-pulse-glow`} />
+                  <div className={`h-full w-1/3 ${c.dot} ${active ? 'animate-pulse-glow' : ''}`} />
                 </div>
 
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-4">
                     <span className={`font-mono text-[10px] ${c.text} tracking-wider opacity-60`}>MODULE</span>
                     <span className={`inline-flex items-center gap-1 font-mono text-[10px] ${c.text}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${c.dot} animate-pulse-glow`} />
-                      READY
+                      <span className={`w-1.5 h-1.5 rounded-full ${active ? c.dot : 'bg-muted-foreground'} ${active ? 'animate-pulse-glow' : ''}`} />
+                      {active ? 'READY' : 'LOCKED'}
                     </span>
                   </div>
 
@@ -251,14 +255,27 @@ const Index = () => (
                   <p className="text-sm text-muted-foreground flex-1 mb-5 leading-relaxed">{desc}</p>
 
                   <div className="flex flex-col gap-2">
-                    <Button asChild size="sm" className={`font-mono ${c.btn} transition-shadow`}>
-                      <Link to={to}>▶ ENTRAR</Link>
-                    </Button>
-                    <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
-                      <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
-                        Comprar acceso <ExternalLink className="h-3 w-3" />
-                      </a>
-                    </Button>
+                    {active ? (
+                      <>
+                        <Button asChild size="sm" className={`font-mono ${c.btn} transition-shadow`}>
+                          <a href={SIMULATOR_URL} target="_blank" rel="noopener noreferrer">▶ ENTRAR</a>
+                        </Button>
+                        <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
+                          <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
+                            Comprar acceso <ExternalLink className="h-3 w-3" />
+                          </a>
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button size="sm" disabled className="font-mono opacity-50 cursor-not-allowed">
+                          ▶ ENTRAR
+                        </Button>
+                        <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
+                          <Link to={to}>Ver módulo</Link>
+                        </Button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -362,9 +379,9 @@ const Index = () => (
             Practica antes de atender clientes reales.<br />
             Sin licencia, sin riesgo, sin bloquearte en el terminal.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="font-mono text-base bg-terminal-green/20 border border-terminal-green/50 text-terminal-green hover:bg-terminal-green/30 hover:shadow-[0_0_20px_hsl(150_100%_50%/0.2)]">
-              <Link to="/simulador-vuelos">Entrar en entrenamiento</Link>
+              <a href={SIMULATOR_URL} target="_blank" rel="noopener noreferrer">Entrar en entrenamiento</a>
             </Button>
             <Button asChild size="lg" variant="outline" className="font-mono text-base gap-2 border-terminal-cyan/50 text-terminal-cyan hover:bg-terminal-cyan/10 hover:shadow-[0_0_20px_hsl(180_100%_50%/0.15)]">
               <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">

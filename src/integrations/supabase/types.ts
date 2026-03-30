@@ -41,21 +41,27 @@ export type Database = {
           email: string
           id: number
           message: string
+          name: string | null
           status: string
+          subject: string | null
         }
         Insert: {
           created_at?: string
           email: string
           id?: never
           message: string
+          name?: string | null
           status?: string
+          subject?: string | null
         }
         Update: {
           created_at?: string
           email?: string
           id?: never
           message?: string
+          name?: string | null
           status?: string
+          subject?: string | null
         }
         Relationships: []
       }

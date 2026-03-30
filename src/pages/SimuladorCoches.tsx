@@ -52,6 +52,7 @@ const SimuladorCoches = () => (
     hotmartUrl={HOTMART_COCHES_URL}
     colorTheme="blue"
     heroImage={logoCoches}
+    underConstruction
   />
 );
 

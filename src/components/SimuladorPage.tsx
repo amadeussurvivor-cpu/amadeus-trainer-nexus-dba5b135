@@ -92,7 +92,7 @@ const SimuladorPage = ({
             <div className={`terminal-card p-8 md:p-10 border-2 ${theme.border} text-center`}>
               <p className={`font-mono text-lg md:text-xl font-bold ${theme.glow} mb-4`}>{">"} MÓDULO EN CONSTRUCCIÓN</p>
               <p className="text-secondary-foreground mb-2">Este módulo estará disponible próximamente.</p>
-              <p className="text-muted-foreground text-sm">Puedes empezar ya con Vuelos y Coches.</p>
+              <p className="text-muted-foreground text-sm">Puedes empezar ya con el módulo de Vuelos.</p>
             </div>
           </div>
         </section>
