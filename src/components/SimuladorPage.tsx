@@ -76,6 +76,7 @@ const SimuladorPage = ({
   missions,
   moduleContents,
   hotmartUrl,
+  trainingUrl,
   colorTheme = "cyan",
   heroImage,
   underConstruction = false,
