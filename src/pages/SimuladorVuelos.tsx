@@ -1,7 +1,8 @@
 import SimuladorPage from "@/components/SimuladorPage";
 import logoVuelos from "@/assets/logo_vuelos.png";
 
-const HOTMART_VUELOS_URL = "https://hotmart.com/es/marketplace"; // placeholder
+const HOTMART_VUELOS_URL = "https://pay.hotmart.com/M104903692I";
+const TRAINING_VUELOS_URL = "https://amadeussurvivor-vuelos.lovable.app";
 
 const SimuladorVuelos = () => (
   <SimuladorPage
@@ -51,6 +52,7 @@ const SimuladorVuelos = () => (
       "Entrenamiento antes de que se abran las líneas",
     ]}
     hotmartUrl={HOTMART_VUELOS_URL}
+    trainingUrl={TRAINING_VUELOS_URL}
     colorTheme="green"
     heroImage={logoVuelos}
   />
