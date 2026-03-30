@@ -10,7 +10,8 @@ import logoVuelos from "@/assets/logo_vuelos.png";
 import logoCoches from "@/assets/logo_coches.png";
 import logoHoteles from "@/assets/logo_hoteles.png";
 
-const HOTMART_URL = "https://hotmart.com/es/marketplace"; // placeholder
+const HOTMART_URL = "https://pay.hotmart.com/M104903692I";
+const SIMULATOR_URL = "https://amadeussurvivor-vuelos.lovable.app";
 
 const modules = [
   {
