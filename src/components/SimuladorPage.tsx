@@ -253,12 +253,45 @@ const SimuladorPage = ({
           <p className="text-muted-foreground mb-8">
             Accede al simulador y empieza a practicar hoy mismo.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className={`font-mono text-base gap-2 ${theme.btn}`}>
-              <a href={hotmartUrl} target="_blank" rel="noopener noreferrer">
+          <div className={`flex flex-wrap justify-center gap-4 ${underConstruction ? 'grayscale opacity-60' : ''}`}>
+            {underConstruction ? (
+              <Button
+                size="lg"
+                disabled
+                className="font-mono text-base gap-2 cursor-not-allowed"
+                title="Módulo en fase de desarrollo"
+                onClick={() => {}}
+              >
                 Comprar acceso al simulador <ExternalLink className="h-4 w-4" />
-              </a>
-            </Button>
+              </Button>
+            ) : (
+              <Button asChild size="lg" className={`font-mono text-base gap-2 ${theme.btn}`}>
+                <a href={hotmartUrl} target="_blank" rel="noopener noreferrer">
+                  Comprar acceso al simulador <ExternalLink className="h-4 w-4" />
+                </a>
+              </Button>
+            )}
+            {underConstruction ? (
+              <Button
+                size="lg"
+                disabled
+                className="font-mono text-base gap-2 cursor-not-allowed"
+                title="Módulo en fase de desarrollo"
+              >
+                ENTRAR EN ENTRENAMIENTO <Terminal className="h-4 w-4" />
+              </Button>
+            ) : trainingUrl ? (
+              <Button asChild size="lg" className={`font-mono text-base gap-2 ${theme.btn}`}>
+                <a href={trainingUrl} target="_blank" rel="noopener noreferrer">
+                  ENTRAR EN ENTRENAMIENTO <Terminal className="h-4 w-4" />
+                </a>
+              </Button>
+            ) : null}
+          </div>
+          {underConstruction && (
+            <p className="text-muted-foreground text-xs mt-4 font-mono">{">"} Módulo en fase de desarrollo</p>
+          )}
+          <div className="mt-6">
             <Button asChild size="lg" variant="outline" className="font-mono text-base gap-2 border-border text-foreground hover:bg-secondary">
               <Link to="/">Volver a la central</Link>
             </Button>

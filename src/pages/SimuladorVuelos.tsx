@@ -52,6 +52,7 @@ const SimuladorVuelos = () => (
       "Entrenamiento antes de que se abran las líneas",
     ]}
     hotmartUrl={HOTMART_VUELOS_URL}
+    trainingUrl={TRAINING_VUELOS_URL}
     colorTheme="green"
     heroImage={logoVuelos}
   />
