@@ -226,23 +226,23 @@ const Index = () => (
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {modules.map(({ image, title, subtitle, desc, to, color }) => {
+          {modules.map(({ image, title, subtitle, desc, to, color, active }) => {
             const c = colorMap[color];
             return (
               <div
                 key={to}
-                className={`relative rounded-md border ${c.border} ${c.borderHover} ${c.bg} ${c.glow} transition-all duration-300 group overflow-hidden`}
+                className={`relative rounded-md border ${c.border} ${active ? c.borderHover : ''} ${c.bg} ${active ? c.glow : ''} transition-all duration-300 group overflow-hidden ${!active ? 'grayscale opacity-60' : ''}`}
               >
                 <div className={`h-0.5 w-full ${c.line}`}>
-                  <div className={`h-full w-1/3 ${c.dot} animate-pulse-glow`} />
+                  <div className={`h-full w-1/3 ${c.dot} ${active ? 'animate-pulse-glow' : ''}`} />
                 </div>
 
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-4">
                     <span className={`font-mono text-[10px] ${c.text} tracking-wider opacity-60`}>MODULE</span>
                     <span className={`inline-flex items-center gap-1 font-mono text-[10px] ${c.text}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${c.dot} animate-pulse-glow`} />
-                      READY
+                      <span className={`w-1.5 h-1.5 rounded-full ${active ? c.dot : 'bg-muted-foreground'} ${active ? 'animate-pulse-glow' : ''}`} />
+                      {active ? 'READY' : 'LOCKED'}
                     </span>
                   </div>
 
@@ -255,14 +255,27 @@ const Index = () => (
                   <p className="text-sm text-muted-foreground flex-1 mb-5 leading-relaxed">{desc}</p>
 
                   <div className="flex flex-col gap-2">
-                    <Button asChild size="sm" className={`font-mono ${c.btn} transition-shadow`}>
-                      <Link to={to}>▶ ENTRAR</Link>
-                    </Button>
-                    <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
-                      <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
-                        Comprar acceso <ExternalLink className="h-3 w-3" />
-                      </a>
-                    </Button>
+                    {active ? (
+                      <>
+                        <Button asChild size="sm" className={`font-mono ${c.btn} transition-shadow`}>
+                          <a href={SIMULATOR_URL} target="_blank" rel="noopener noreferrer">▶ ENTRAR</a>
+                        </Button>
+                        <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
+                          <a href={HOTMART_URL} target="_blank" rel="noopener noreferrer">
+                            Comprar acceso <ExternalLink className="h-3 w-3" />
+                          </a>
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button size="sm" disabled className="font-mono opacity-50 cursor-not-allowed">
+                          ▶ ENTRAR
+                        </Button>
+                        <Button asChild size="sm" variant="outline" className="font-mono gap-1 border-border text-foreground hover:bg-secondary">
+                          <Link to={to}>Ver módulo</Link>
+                        </Button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
