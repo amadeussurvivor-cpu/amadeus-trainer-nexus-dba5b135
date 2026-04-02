@@ -34,7 +34,7 @@ const modules = [
     image: logoVuelos,
     title: "VUELOS / GDS",
     subtitle: "Agencia en Cuarentena",
-    desc: "Agencia en cuarentena. Entrena lo que necesitas para no bloquearte en el terminal.",
+    desc: "Agencia en cuarentena.Entrena lo que necesitas para no bloquearte en el terminal.",
     to: "/simulador-vuelos",
     color: "cyan" as const,
     active: true,
