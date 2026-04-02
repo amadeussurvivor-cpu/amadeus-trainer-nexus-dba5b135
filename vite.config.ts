@@ -19,6 +19,9 @@ const spa404Fallback = () => ({
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: './',
+  build: {
+    assetsDir: 'assets',
+  },
   server: {
     host: "::",
     port: 8080,
