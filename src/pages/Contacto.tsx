@@ -52,12 +52,28 @@ const Contacto = () => {
       message: result.data.message,
     });
 
-    setSending(false);
-
     if (error) {
+      setSending(false);
       setErrors({ form: "Error al enviar. Inténtalo de nuevo." });
       return;
     }
+
+    try {
+      await fetch("https://hook.eu1.make.com/ntsnqfuaisa41vvx475t9mbsjp8k9a5m", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: result.data.name,
+          email: result.data.email,
+          subject: result.data.subject,
+          message: result.data.message,
+        }),
+      });
+    } catch {
+      // Webhook failure is non-blocking; the message is already saved in Supabase
+    }
+
+    setSending(false);
 
     setSent(true);
     setName("");
