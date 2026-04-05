@@ -33,9 +33,14 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground font-mono">
-        <p>© {new Date().getFullYear()} Amadeus Survivor. Todos los derechos reservados.</p>
-        <p className="mt-1 text-xs">Este proyecto no está afiliado con Amadeus IT Group.</p>
+      <div className="mt-8 pt-8 border-t border-border text-sm text-muted-foreground font-mono">
+        <p className="max-w-3xl mx-auto text-xs text-terminal-dim leading-relaxed mb-6 text-left">
+          Amadeus Survivor es una plataforma de formación técnica avanzada. Este curso de Amadeus online está diseñado para profesionales que buscan dominar las reservas aéreas y la gestión de GDS mediante un simulador profesional de alta fidelidad.
+        </p>
+        <div className="text-center">
+          <p>© {new Date().getFullYear()} Amadeus Survivor. Todos los derechos reservados.</p>
+          <p className="mt-1 text-xs">Este proyecto no está afiliado con Amadeus IT Group.</p>
+        </div>
       </div>
     </div>
   </footer>
