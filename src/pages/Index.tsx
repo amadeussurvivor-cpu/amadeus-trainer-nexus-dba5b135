@@ -11,7 +11,7 @@ import {
   ShieldCheck,
   Clock,
   BookOpen,
-  Play,
+  
   ChevronRight,
   ExternalLink,
   Zap,
@@ -134,9 +134,9 @@ const advantages = [
 const Index = () => (
   <div>
     <SEOHead
-      title="Amadeus Survivor – Simuladores prácticos de Amadeus para agentes de viajes"
-      description="Practica vuelos, hoteles y coches en simuladores de Amadeus sin usar el sistema real. Formación práctica GDS para agentes de viajes y estudiantes de turismo."
-      keywords="simulador amadeus, curso amadeus, aprender amadeus, gds, formacion agentes de viajes, pnr, reserva vuelos, gds training, amadeus training"
+      title="Curso de Amadeus Online y Simulador Profesional | Amadeus Survivor"
+      description="Domina el GDS con el curso de Amadeus online más avanzado. Incluye simulador profesional para entrenamiento intensivo de agentes de viajes."
+      keywords="curso de amadeus, curso amadeus online, simulador amadeus, aprender amadeus, gds, formacion agentes de viajes, pnr, reserva vuelos, gds training, amadeus training, entrenamiento gds"
     />
 
     {/* HERO — System Boot Screen */}
@@ -286,7 +286,7 @@ const Index = () => (
                   <div
                     className={`w-full aspect-[4/3] rounded overflow-hidden mb-4 border ${c.border} bg-background/50`}
                   >
-                    <img src={image} alt={title} className="w-full h-full object-cover" />
+                    <img src={image} alt={`Curso Amadeus - módulo ${title} - entrenamiento GDS`} className="w-full h-full object-cover" />
                   </div>
 
                   <h3 className={`font-mono text-lg font-bold ${c.text} mb-1`}>{title}</h3>
@@ -393,15 +393,16 @@ const Index = () => (
     <section className="py-16 md:py-20">
       <div className="container max-w-3xl text-center">
         <h2 className="font-mono text-2xl md:text-3xl text-gradient-neon mb-8">{"// DEMO"}</h2>
-        <div className="aspect-video terminal-card flex items-center justify-center border-terminal-cyan/20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-          <div className="text-center relative z-10">
-            <div className="inline-flex items-center justify-center h-16 w-16 rounded-full border border-terminal-cyan/30 bg-terminal-cyan/5 mx-auto mb-4">
-              <Play className="h-8 w-8 text-terminal-dim" />
-            </div>
-            <p className="font-mono text-sm text-muted-foreground">Así funciona el simulador</p>
-            <p className="text-xs text-muted-foreground mt-1">Ejemplo real del entrenamiento</p>
-          </div>
+        <div className="aspect-video terminal-card border-terminal-cyan/20 relative overflow-hidden">
+          <video
+            src="/videos/demo-amadeus.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            aria-label="Demo del curso de Amadeus - entrenamiento GDS en simulador profesional"
+          />
         </div>
       </div>
     </section>
