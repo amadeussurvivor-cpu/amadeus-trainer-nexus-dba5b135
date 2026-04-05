@@ -11,7 +11,7 @@ import {
   ShieldCheck,
   Clock,
   BookOpen,
-  Play,
+  
   ChevronRight,
   ExternalLink,
   Zap,
